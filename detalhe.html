@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Guia de Mogi das Cruzes</title>
+
+    <style>
+        :root {
+            --primary-color: #1e3a2b;
+            --primary-light: #2d5a41;
+            --accent-color: #c0392b;
+            --accent-soft: #fbf0f0;
+            --bg-color: #f7f9f8;
+            --surface-color: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #627d77;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(100% - 32px, 1140px);
+            margin-inline: auto;
+        }
+
+        /* HEADER */
+
+        .header {
+            background: var(--surface-color);
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-container {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            text-decoration: none;
+            color: var(--primary-color);
+            min-width: 0;
+        }
+
+        .logo small {
+            display: block;
+            color: var(--accent-color);
+            font-size: 0.72rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+        }
+
+        .logo h1 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            line-height: 1.2;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .menu a {
+            display: block;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .menu a:hover {
+            background: var(--accent-soft);
+            color: var(--accent-color);
+        }
+
+        /* CONTEÚDO */
+
+        main {
+            padding-block: 48px 64px;
+        }
+
+        .intro {
+            margin-bottom: 32px;
+        }
+
+        .intro span {
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .intro h2 {
+            margin-top: 6px;
+            color: var(--primary-color);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            line-height: 1.2;
+        }
+
+        .intro p {
+            max-width: 680px;
+            margin-top: 12px;
+            color: var(--text-muted);
+        }
+
+        /* GRID DE CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            min-width: 0;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-link {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 20px;
+        }
+
+        .card-category {
+            color: var(--accent-color);
+            font-size: 0.72rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card h3 {
+            margin-top: 6px;
+            color: var(--primary-color);
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            margin-top: 8px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        .card-button {
+            margin-top: auto;
+            padding-top: 18px;
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 32px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #d1e0d7;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        /* TABLET */
+
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .header-container {
+                align-items: flex-start;
+                flex-direction: column;
+                padding-block: 18px;
+            }
+
+            .menu {
+                justify-content: flex-start;
+                width: 100%;
+            }
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+            .container {
+                width: min(100% - 24px, 1140px);
+            }
+
+            main {
+                padding-block: 32px 48px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .card img {
+                height: 190px;
+            }
+
+            .menu {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .menu a {
+                background: var(--bg-color);
+                text-align: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="container header-container">
+
+            <a href="index.html" class="logo">
+                <small>GUIA DE MOGI DAS CRUZES</small>
+                <h1>Locais e Eventos</h1>
+            </a>
+
+            <nav aria-label="Navegação principal">
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="parque.html">Locais</a></li>
+                    <li><a href="evento.html">Eventos</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="intro">
+
+            <span>Explore Mogi das Cruzes</span>
+
+            <h2>
+                Lugares para conhecer
+            </h2>
+
+            <p>
+                Encontre parques, espaços culturais e eventos
+                para aproveitar a cidade.
+            </p>
+
+        </section>
+
+
+        <section id="locais">
+
+            <div class="cards">
+
+                <!-- CARD CLICÁVEL -->
+
+                <article class="card">
+
+                    <a href="parque.html" class="card-link">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=80"
+                            alt="Área verde do Parque Centenário"
+                        >
+
+                        <div class="card-content">
+
+                            <span class="card-category">
+                                Parque
+                            </span>
+
+                            <h3>
+                                Parque Centenário da Imigração Japonesa
+                            </h3>
+
+                            <p>
+                                Natureza, lazer, cultura e espaços
+                                inspirados na imigração japonesa.
+                            </p>
+
+                            <span class="card-button">
+                                Ver detalhes →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </article>
+
+
+                <article class="card">
+
+                    <a href="parque.html" class="card-link">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+                            alt="Área verde de um parque"
+                        >
+
+                        <div class="card-content">
+
+                            <span class="card-category">
+                                Lazer
+                            </span>
+
+                            <h3>
+                                Espaços de lazer
+                            </h3>
+
+                            <p>
+                                Descubra opções para caminhar,
+                                descansar e aproveitar a natureza.
+                            </p>
+
+                            <span class="card-button">
+                                Ver detalhes →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </article>
+
+
+                <article class="card">
+
+                    <a href="parque.html" class="card-link">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80"
+                            alt="Pessoas participando de um evento"
+                        >
+
+                        <div class="card-content">
+
+                            <span class="card-category">
+                                Eventos
+                            </span>
+
+                            <h3>
+                                Eventos culturais
+                            </h3>
+
+                            <p>
+                                Confira atividades culturais e de lazer
+                                realizadas na cidade.
+                            </p>
+
+                            <span class="card-button">
+                                Ver detalhes →
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section id="eventos" style="margin-top: 48px;">
+
+            <div class="intro">
+
+                <span>Programação</span>
+
+                <h2>
+                    Próximos eventos
+                </h2>
+
+                <p>
+                    Consulte os detalhes dos locais e suas
+                    programações.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="container footer-container">
+
+            <div>
+                <strong>Guia de Mogi das Cruzes</strong>
+                <p>Locais, lazer, cultura e eventos.</p>
+            </div>
+
+            <div>
+                <a href="evento.html">
+                    Voltar ao início
+                </a>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
