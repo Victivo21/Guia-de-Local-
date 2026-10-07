@@ -1,0 +1,55 @@
+/* CONTAINER DO CABEÇALHO */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+/* IDENTIDADE DO LOCAL */
+.identidade {
+    flex: 1;
+}
+
+/* MENU HORIZONTAL (HEADER) */
+.menu-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-horizontal a,
+.menu-vertical a {
+    display: block;
+    padding: 10px 15px; /* Área de clique generosa */
+    text-decoration: none;
+    color: inherit;
+    border-radius: 4px;
+}
+
+/* ACESSIBILIDADE E SELEÇÃO DE TECLADO */
+.menu-horizontal a:focus,
+.menu-vertical a:focus,
+.link-home:focus {
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+
+/* MENU VERTICAL (FOOTER) */
+.menu-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.link-home {
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
